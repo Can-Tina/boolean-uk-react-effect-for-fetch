@@ -8,7 +8,6 @@ function ArtsSection() {
     fetch('https://api.artic.edu/api/v1/artworks')
       .then(response => response.json())
       .then(data => {
-        console.log("data: ", data.data)
         setArtList(data.data)
       });
   }, [])

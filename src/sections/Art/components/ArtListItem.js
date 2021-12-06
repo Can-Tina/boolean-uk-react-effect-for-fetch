@@ -2,10 +2,11 @@ import SubjectList from './SubjectList'
 
 function ArtListItem(props) {
     return (
-        <li>
-            <div class="frame">
+        <li key={props.art.id}>
+            <div className="frame">
                 <img
                 src={`https://www.artic.edu/iiif/2/${props.art.image_id}/full/843,/0/default.jpg`}
+                alt={props.art.title}
                 />
             </div>
             <h3>{props.art.title}</h3>
