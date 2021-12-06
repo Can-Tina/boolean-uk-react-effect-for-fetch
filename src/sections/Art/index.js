@@ -6,22 +6,26 @@ function ArtsSection() {
 
   useEffect(() => {
     fetch('https://api.artic.edu/api/v1/artworks')
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => {
-        setArtList(data)
-      })
-      .catch(err => console.error(err))
+        console.log("data: ", data.data)
+        setArtList(data.data)
+      });
   }, [])
 
-  return (
-    <section>
-      <h2>Arts Section</h2>
-      <div className="scroll-container">
-      <ArtList artList={artList}/>
-      </div>
-    </section>
-  )
+  if (artList == undefined) {
+    return <p>Just One Sec!</p>
+  } else {
+    return (
+      <section>
+        <h2>Arts Section</h2>
+        <div className="scroll-container">
+          <ArtList artList={artList}/>
+        </div>
+      </section>
+    )
 
+    }
   }
-
+  
 export default ArtsSection
